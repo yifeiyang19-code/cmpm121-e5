@@ -20,6 +20,7 @@ const KEYS: Record<string, Command> = {
   s: { kind: "move", direction: "down" },
   a: { kind: "move", direction: "left" },
   d: { kind: "move", direction: "right" },
+  r: { kind: "restart" },
 };
 
 const keyboard: Controller = {
