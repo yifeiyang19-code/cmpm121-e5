@@ -29,7 +29,8 @@ export function replayScript(): Command[][] {
 export function summarize(finals: readonly Puzzle[]): string {
   const solved = finals.filter(isSolved).length;
   const moves = finals.reduce((sum, puzzle) => sum + puzzle.moves, 0);
-  return `[replay] solved=${solved}/${finals.length} moves=${moves}`;
+  const pushes = finals.reduce((sum, puzzle) => sum + puzzle.pushes, 0);
+  return `[replay] solved=${solved}/${finals.length} moves=${moves} pushes=${pushes}`;
 }
 
 /** Plays the whole script at once, with no browser. */

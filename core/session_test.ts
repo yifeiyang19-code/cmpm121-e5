@@ -42,5 +42,5 @@ Deno.test("every level's par route solves it", () => {
 });
 
 Deno.test("the replay line", () => {
-  assertEquals(replayAll(), "[replay] solved=5/5 moves=96");
+  assertEquals(replayAll(), "[replay] solved=5/5 moves=96 pushes=32");
 });

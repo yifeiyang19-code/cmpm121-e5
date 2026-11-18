@@ -23,6 +23,7 @@ export interface Puzzle {
   readonly player: Position;
   readonly crates: readonly Position[];
   readonly moves: number;
+  readonly pushes: number;
 }
 
 const STEP: Record<Direction, Position> = {
@@ -80,7 +81,7 @@ export function parsePuzzle(name: string, rows: readonly string[]): Puzzle {
   }
   const width = Math.max(...rows.map((row) => row.length));
   const layout = { name, width, height: rows.length, walls, goals };
-  return { layout, player, crates, moves: 0 };
+  return { layout, player, crates, moves: 0, pushes: 0 };
 }
 
 /**
@@ -100,6 +101,7 @@ export function move(puzzle: Puzzle, direction: Direction): Puzzle {
     player: target,
     crates: puzzle.crates.map((c) => samePosition(c, target) ? beyond : c),
     moves: puzzle.moves + 1,
+    pushes: puzzle.pushes + 1,
   };
 }
 
