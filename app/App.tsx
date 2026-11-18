@@ -37,7 +37,7 @@ export function App({ session }: { session: Session }) {
       </header>
       <Board puzzle={state.puzzle} clicks={clicks} />
       <aside>
-        <StatusBar puzzle={state.puzzle} />
+        <StatusBar puzzle={state.puzzle} par={LEVELS[state.level].par.length} />
         {solved && (
           <p className="banner" role="status">
             Solved in {state.puzzle.moves} moves. {!last && (
