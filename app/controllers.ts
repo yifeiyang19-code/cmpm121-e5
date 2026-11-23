@@ -1,5 +1,6 @@
 import type { Command, Session } from "../core/mod.ts";
 import type { BoardInput } from "./tileClicks.ts";
+import { clickToMove } from "./clickToMove.ts";
 import { replay } from "./replay.ts";
 
 // Strategy: each controller is one interchangeable way of turning input into
@@ -40,7 +41,7 @@ const keyboard: Controller = {
   },
 };
 
-export const CONTROLLERS = { keyboard, replay };
+export const CONTROLLERS = { keyboard, replay, clickToMove };
 
 export type ControllerName = keyof typeof CONTROLLERS;
 
