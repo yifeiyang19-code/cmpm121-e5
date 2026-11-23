@@ -3,6 +3,7 @@ import { isSolved, LEVELS, type Session } from "../core/mod.ts";
 import { Board } from "./Board.tsx";
 import { CONTROLLERS, initialController } from "./controllers.ts";
 import { ControlsPicker } from "./ControlsPicker.tsx";
+import { GoalTracker } from "./GoalTracker.tsx";
 import { LevelPicker } from "./LevelPicker.tsx";
 import { StatusBar } from "./StatusBar.tsx";
 import { TileClicks } from "./tileClicks.ts";
@@ -38,6 +39,7 @@ export function App({ session }: { session: Session }) {
       <Board puzzle={state.puzzle} clicks={clicks} />
       <aside>
         <StatusBar puzzle={state.puzzle} par={LEVELS[state.level].par.length} />
+        <GoalTracker puzzle={state.puzzle} />
         {solved && (
           <p className="banner" role="status">
             Solved in {state.puzzle.moves} moves. {!last && (
