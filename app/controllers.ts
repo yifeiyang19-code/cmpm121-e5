@@ -21,6 +21,7 @@ const KEYS: Record<string, Command> = {
   a: { kind: "move", direction: "left" },
   d: { kind: "move", direction: "right" },
   r: { kind: "restart" },
+  z: { kind: "undo" },
 };
 
 const keyboard: Controller = {

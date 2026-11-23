@@ -38,7 +38,10 @@ export function App({ session }: { session: Session }) {
       </header>
       <Board puzzle={state.puzzle} clicks={clicks} />
       <aside>
-        <StatusBar puzzle={state.puzzle} par={LEVELS[state.level].par.length} />
+        <StatusBar
+          puzzle={state.puzzle}
+          par={LEVELS[state.level].par.length}
+        />
         <GoalTracker puzzle={state.puzzle} />
         {solved && (
           <p className="banner" role="status">
@@ -61,6 +64,13 @@ export function App({ session }: { session: Session }) {
           onClick={() => session.dispatch({ kind: "restart" })}
         >
           Restart
+        </button>
+        <button
+          type="button"
+          onClick={() => session.dispatch({ kind: "undo" })}
+          disabled={state.past.length === 0}
+        >
+          Undo
         </button>
         <ControlsPicker current={controller} onChoose={setController} />
       </aside>
